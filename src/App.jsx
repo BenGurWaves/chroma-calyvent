@@ -133,8 +133,13 @@ function App() {
   if (isLoading) {
     return (
       <div className="chroma-app">
-        <div className="loader">
-          <div className="loader-text">CHROMA</div>
+        <div className="loader loader-fade">
+          <div className="loader-content">
+            <div className="loader-text">CHROMA</div>
+            <div className="loader-bar">
+              <div className="loader-progress"></div>
+            </div>
+          </div>
         </div>
       </div>
     )
@@ -145,7 +150,7 @@ function App() {
       <header className="top-bar">
         <div className="logo-container">
           <h1 className="logo">CHROMA</h1>
-          <span className="logo-by"> by </span>
+          <div className="logo-divider"></div>
           <a href="https://calyvent.com" target="_blank" rel="noopener" className="logo-calyvent">CALYVENT</a>
         </div>
       </header>
