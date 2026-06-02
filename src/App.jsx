@@ -175,12 +175,19 @@ function App() {
             className="color-picker"
           />
         </div>
+        <div className="control-group spacer"></div>
         <div className="control-group">
-          <button onClick={handleCopyAll} className="copy-all-btn">COPY ALL</button>
+          <a href="/privacy.html" className="control-link">PRIVACY</a>
+        </div>
+        <div className="control-group">
+          <a href="/terms.html" className="control-link">TERMS</a>
         </div>
       </div>
 
       <main className="spectrum-wall">
+        <div className="copy-all-container">
+          <button onClick={handleCopyAll} className="copy-all-btn">COPY ALL COLORS</button>
+        </div>
         {steps.map((step) => {
           const color = scale[step]
           if (!color) return null
@@ -203,10 +210,6 @@ function App() {
 
       <footer className="attribution">
         <a href="https://velocity.calyvent.com" target="_blank" rel="noopener" className="footer-link">DESIGN BY VELOCITY</a>
-        <span className="divider">//</span>
-        <a href="/privacy.html" className="footer-link">PRIVACY</a>
-        <span className="divider">//</span>
-        <a href="/terms.html" className="footer-link">TERMS</a>
       </footer>
 
       {copySuccess && (
