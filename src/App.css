@@ -19,7 +19,7 @@
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 12px;
 }
 
 .logo {
@@ -32,18 +32,28 @@
   text-transform: uppercase;
 }
 
-.logo-divider {
-  width: 1px;
-  height: 32px;
-  background: var(--rule);
+.logo-by {
+  font-family: var(--interface);
+  font-size: 16px;
+  letter-spacing: 0.18em;
+  color: var(--parchment-rose);
+  opacity: 0.5;
+  text-transform: uppercase;
 }
 
-.logo-value {
-  font-family: var(--mono);
-  font-size: 14px;
-  letter-spacing: 0.05em;
+.logo-calyvent {
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.18em;
   color: var(--muted-ochre);
-  text-transform: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: opacity 0.2s;
+}
+
+.logo-calyvent:hover {
+  opacity: 0.8;
 }
 
 .control-deck {
@@ -105,11 +115,60 @@
   border: none;
 }
 
+.copy-all-btn {
+  width: 120px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid var(--muted-ochre);
+  color: var(--muted-ochre);
+  font-family: var(--interface);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.copy-all-btn:hover {
+  background: var(--muted-ochre);
+  color: var(--canvas-base);
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--canvas-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.loader-text {
+  font-family: var(--display);
+  font-size: 48px;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  color: var(--parchment-rose);
+  text-transform: uppercase;
+  animation: fadeOut 0.5s ease-out 1.5s forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
 .spectrum-wall {
   flex: 1;
   display: flex;
   width: 100%;
   overflow: hidden;
+  min-height: 0;
 }
 
 .color-column {

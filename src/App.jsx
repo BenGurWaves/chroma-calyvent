@@ -79,6 +79,7 @@ function App() {
   const [oklch, setOklch] = useState({ L: 0.55, C: 0.14, H: 45 })
   const [scale, setScale] = useState({})
   const [copySuccess, setCopySuccess] = useState('')
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const parsed = hexToOklch(hexInput)
@@ -86,6 +87,11 @@ function App() {
     const generatedScale = generateScale(parsed.L, parsed.C, parsed.H)
     setScale(generatedScale)
   }, [hexInput])
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 2000)
+    return () => clearTimeout(timer)
+  }, [])
 
   const handleHexChange = (e) => {
     const value = e.target.value
@@ -111,15 +117,36 @@ function App() {
     }
   }
 
+  const handleCopyAll = async () => {
+    try {
+      const allColors = Object.values(scale).map(c => c.oklch).join('\n')
+      await navigator.clipboard.writeText(allColors)
+      setCopySuccess('ALL COPIED')
+      setTimeout(() => setCopySuccess(''), 1500)
+    } catch (err) {
+      console.error('Failed to copy all:', err)
+    }
+  }
+
   const steps = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900', '950']
+
+  if (isLoading) {
+    return (
+      <div className="chroma-app">
+        <div className="loader">
+          <div className="loader-text">CHROMA</div>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="chroma-app">
       <header className="top-bar">
         <div className="logo-container">
           <h1 className="logo">CHROMA</h1>
-          <div className="logo-divider"></div>
-          <div className="logo-value">{hexInput}</div>
+          <span className="logo-by"> by </span>
+          <a href="https://calyvent.com" target="_blank" rel="noopener" className="logo-calyvent">CALYVENT</a>
         </div>
       </header>
 
@@ -142,6 +169,9 @@ function App() {
             onChange={handleColorPicker}
             className="color-picker"
           />
+        </div>
+        <div className="control-group">
+          <button onClick={handleCopyAll} className="copy-all-btn">COPY ALL</button>
         </div>
       </div>
 
@@ -167,17 +197,11 @@ function App() {
       </main>
 
       <footer className="attribution">
-        <span>VELOCITY.CALYVENT.COM</span>
-        <span className="divider">//</span>
-        <span>LOCAL-FIRST</span>
-        <span className="divider">//</span>
-        <span>NO SERVER PROCESSING</span>
+        <a href="https://velocity.calyvent.com" target="_blank" rel="noopener" className="footer-link">DESIGN BY VELOCITY</a>
         <span className="divider">//</span>
         <a href="/privacy.html" className="footer-link">PRIVACY</a>
         <span className="divider">//</span>
         <a href="/terms.html" className="footer-link">TERMS</a>
-        <span className="divider">//</span>
-        <span>CALYVENT.COM</span>
       </footer>
 
       {copySuccess && (
