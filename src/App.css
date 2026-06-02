@@ -1,9 +1,10 @@
 .chroma-app {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   background: var(--canvas-base);
+  overflow: hidden;
 }
 
 .top-bar {
@@ -243,6 +244,7 @@
   overflow: hidden;
   min-height: 0;
   position: relative;
+  flex-shrink: 0;
 }
 
 .color-column {

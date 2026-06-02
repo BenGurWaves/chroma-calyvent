@@ -152,73 +152,79 @@ function App() {
   }
 
   return (
-    <div className="chroma-app">
-      <header className="top-bar">
-        <div className="logo-container">
-          <h1 className="logo">CHROMA</h1>
-          <a href="https://calyvent.com" target="_blank" rel="noopener" className="logo-subtitle">by calyvent</a>
-        </div>
-      </header>
+    <>
+      <div className="chroma-app">
+        <header className="top-bar">
+          <div className="logo-container">
+            <h1 className="logo">CHROMA</h1>
+            <a href="https://calyvent.com" target="_blank" rel="noopener" className="logo-subtitle">by calyvent</a>
+          </div>
+        </header>
 
-      <div className="control-deck">
-        <div className="control-group">
-          <label>HEX</label>
-          <input
-            type="text"
-            value={hexInput}
-            onChange={handleHexChange}
-            className="hex-input"
-            maxLength={7}
-          />
+        <div className="control-deck">
+          <div className="control-group">
+            <label>HEX</label>
+            <input
+              type="text"
+              value={hexInput}
+              onChange={handleHexChange}
+              className="hex-input"
+              maxLength={7}
+            />
+          </div>
+          <div className="control-group">
+            <label>PICKER</label>
+            <input
+              type="color"
+              value={colorPicker}
+              onChange={handleColorPicker}
+              className="color-picker"
+            />
+          </div>
+          <div className="control-group spacer"></div>
+          <div className="control-group">
+            <a href="/privacy.html" className="control-link">PRIVACY</a>
+          </div>
+          <div className="control-group">
+            <a href="/terms.html" className="control-link">TERMS</a>
+          </div>
         </div>
-        <div className="control-group">
-          <label>PICKER</label>
-          <input
-            type="color"
-            value={colorPicker}
-            onChange={handleColorPicker}
-            className="color-picker"
-          />
-        </div>
-        <div className="control-group spacer"></div>
-        <div className="control-group">
-          <a href="/privacy.html" className="control-link">PRIVACY</a>
-        </div>
-        <div className="control-group">
-          <a href="/terms.html" className="control-link">TERMS</a>
-        </div>
-      </div>
 
-      <main className="spectrum-wall">
-        <div className="copy-all-container">
-          <button onClick={handleCopyAll} className="copy-all-btn">COPY ALL COLORS</button>
-        </div>
-        {steps.map((step) => {
-          const color = scale[step]
-          if (!color) return null
-          return (
-            <div
-              key={step}
-              className="color-column"
-              style={{ backgroundColor: color.oklch }}
-              onClick={() => handleCopy(color.oklch, step)}
-            >
-              <div className="column-label">{step}</div>
-              <div className="column-data">
-                <div className="data-oklch">{color.oklch}</div>
-                <div className="data-lightness">L: {color.L.toFixed(2)}</div>
+        <main className="spectrum-wall">
+          <div className="copy-all-container">
+            <button onClick={handleCopyAll} className="copy-all-btn">COPY ALL COLORS</button>
+          </div>
+          {steps.map((step) => {
+            const color = scale[step]
+            if (!color) return null
+            return (
+              <div
+                key={step}
+                className="color-column"
+                style={{ backgroundColor: color.oklch }}
+                onClick={() => handleCopy(color.oklch, step)}
+              >
+                <div className="column-label">{step}</div>
+                <div className="column-data">
+                  <div className="data-oklch">{color.oklch}</div>
+                  <div className="data-lightness">L: {color.L.toFixed(2)}</div>
+                </div>
+                {copiedStep === step && (
+                  <div className="column-copied">COPIED</div>
+                )}
               </div>
-              {copiedStep === step && (
-                <div className="column-copied">COPIED</div>
-              )}
-            </div>
-          )
-        })}
-      </main>
+            )
+          })}
+        </main>
 
-      <footer className="attribution">
-        <a href="https://velocity.calyvent.com" target="_blank" rel="noopener" className="footer-link">DESIGN BY VELOCITY</a>
-      </footer>
+        <footer className="attribution">
+          <a href="https://velocity.calyvent.com" target="_blank" rel="noopener" className="footer-link">DESIGN BY VELOCITY</a>
+        </footer>
+
+        {copySuccess && (
+          <div className="copy-toast">{copySuccess}</div>
+        )}
+      </div>
 
       <section className="seo-content">
         <nav className="breadcrumb">
@@ -301,11 +307,7 @@ function App() {
           </div>
         </div>
       </section>
-
-      {copySuccess && (
-        <div className="copy-toast">{copySuccess}</div>
-      )}
-    </div>
+    </>
   )
 }
 
