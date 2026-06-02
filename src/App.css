@@ -1,9 +1,10 @@
 .chroma-app {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   background: var(--canvas-base);
+  overflow: hidden;
 }
 
 .top-bar {
@@ -108,7 +109,7 @@
   flex: 1;
   display: flex;
   width: 100%;
-  min-height: calc(100vh - 80px - 80px - 60px);
+  overflow: hidden;
 }
 
 .color-column {
@@ -184,6 +185,16 @@
 
 .attribution .divider {
   opacity: 0.3;
+}
+
+.footer-link {
+  color: var(--muted-ochre);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.footer-link:hover {
+  opacity: 0.8;
 }
 
 .copy-toast {

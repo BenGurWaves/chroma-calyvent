@@ -89,8 +89,8 @@ function App() {
 
   const handleHexChange = (e) => {
     const value = e.target.value
+    setHexInput(value)
     if (/^#[0-9A-Fa-f]{6}$/.test(value)) {
-      setHexInput(value)
       setColorPicker(value)
     }
   }
@@ -172,6 +172,10 @@ function App() {
         <span>LOCAL-FIRST</span>
         <span className="divider">//</span>
         <span>NO SERVER PROCESSING</span>
+        <span className="divider">//</span>
+        <a href="/privacy.html" className="footer-link">PRIVACY</a>
+        <span className="divider">//</span>
+        <a href="/terms.html" className="footer-link">TERMS</a>
         <span className="divider">//</span>
         <span>CALYVENT.COM</span>
       </footer>
