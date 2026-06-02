@@ -1,0 +1,231 @@
+.chroma-app {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--canvas-base);
+}
+
+.top-bar {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--rule);
+  flex-shrink: 0;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.logo {
+  font-family: var(--display);
+  font-size: 32px;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  color: var(--parchment-rose);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.logo-divider {
+  width: 1px;
+  height: 32px;
+  background: var(--rule);
+}
+
+.logo-value {
+  font-family: var(--mono);
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  color: var(--muted-ochre);
+  text-transform: none;
+}
+
+.control-deck {
+  display: flex;
+  gap: 32px;
+  padding: 24px 40px;
+  border-bottom: 1px solid var(--rule);
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.control-group label {
+  font-family: var(--interface);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--parchment-rose);
+  opacity: 0.6;
+  text-transform: uppercase;
+}
+
+.hex-input {
+  width: 120px;
+  padding: 8px 12px;
+  background: transparent;
+  border: 1px solid var(--rule);
+  color: var(--parchment-rose);
+  font-family: var(--mono);
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.hex-input:focus {
+  border-color: var(--muted-ochre);
+}
+
+.color-picker {
+  width: 120px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid var(--rule);
+  cursor: pointer;
+  outline: none;
+}
+
+.color-picker::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.color-picker::-webkit-color-swatch {
+  border: none;
+}
+
+.spectrum-wall {
+  flex: 1;
+  display: flex;
+  width: 100%;
+  min-height: calc(100vh - 80px - 80px - 60px);
+}
+
+.color-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 24px 16px;
+  cursor: pointer;
+  position: relative;
+  transition: opacity 0.2s;
+}
+
+.color-column:hover {
+  opacity: 0.9;
+}
+
+.color-column:hover .column-data {
+  opacity: 1;
+}
+
+.column-label {
+  font-family: var(--interface);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--parchment-rose);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.column-data {
+  opacity: 0;
+  transition: opacity 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.data-oklch {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  color: var(--parchment-rose);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.data-lightness {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.02em;
+  color: var(--parchment-rose);
+  opacity: 0.6;
+}
+
+.attribution {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border-top: 1px solid var(--rule);
+  flex-shrink: 0;
+  font-family: var(--interface);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--parchment-rose);
+  opacity: 0.5;
+  text-transform: uppercase;
+}
+
+.attribution .divider {
+  opacity: 0.3;
+}
+
+.copy-toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  background: var(--muted-ochre);
+  color: var(--canvas-base);
+  font-family: var(--interface);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    font-size: 24px;
+  }
+
+  .logo-value {
+    font-size: 12px;
+  }
+
+  .control-deck {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px;
+  }
+
+  .hex-input,
+  .color-picker {
+    width: 100%;
+  }
+
+  .column-data {
+    display: none;
+  }
+
+  .color-column:hover .column-data {
+    display: flex;
+  }
+}

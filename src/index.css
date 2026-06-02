@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --canvas-base: #28312E;
+  --rule: #5F6F6A;
+  --parchment-rose: #E6DAD1;
+  --muted-ochre: #A8927E;
+  
+  --display: 'Graphik', 'Lausanne', system-ui, -apple-system, sans-serif;
+  --interface: 'Graphik', 'Lausanne', system-ui, -apple-system, sans-serif;
+  --mono: 'Context Mono', 'SF Mono', 'Fira Code', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--canvas-base);
+  color: var(--parchment-rose);
+  font-family: var(--interface);
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
