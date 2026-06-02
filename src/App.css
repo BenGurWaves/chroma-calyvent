@@ -18,8 +18,9 @@
 
 .logo-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 4px;
 }
 
 .logo {
@@ -32,25 +33,20 @@
   text-transform: uppercase;
 }
 
-.logo-divider {
-  width: 1px;
-  height: 24px;
-  background: var(--rule);
-}
-
-.logo-calyvent {
-  font-family: var(--display);
-  font-size: 14px;
+.logo-subtitle {
+  font-family: var(--interface);
+  font-size: 11px;
   font-weight: 300;
   letter-spacing: 0.18em;
   color: var(--muted-ochre);
   text-decoration: none;
   text-transform: uppercase;
   transition: opacity 0.2s;
+  opacity: 0.6;
 }
 
-.logo-calyvent:hover {
-  opacity: 0.8;
+.logo-subtitle:hover {
+  opacity: 1;
 }
 
 .control-deck {
@@ -75,17 +71,20 @@
 
 .control-link {
   font-family: var(--interface);
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 0.18em;
-  color: var(--muted-ochre);
+  color: var(--parchment-rose);
   text-decoration: none;
   text-transform: uppercase;
-  transition: opacity 0.2s;
+  transition: all 0.2s;
   padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  opacity: 0.4;
 }
 
 .control-link:hover {
-  opacity: 0.8;
+  opacity: 1;
+  border-bottom: 1px solid var(--muted-ochre);
 }
 
 .control-group label {
@@ -222,11 +221,14 @@
 }
 
 .loader-fade {
-  animation: fadeOut 0.8s ease-in-out 1.5s forwards;
+  animation: fadeOut 1.2s ease-in-out 1.5s forwards;
 }
 
 @keyframes fadeOut {
   0% {
+    opacity: 1;
+  }
+  70% {
     opacity: 1;
   }
   100% {
@@ -298,6 +300,30 @@
   letter-spacing: 0.02em;
   color: var(--parchment-rose);
   opacity: 0.6;
+}
+
+.column-copied {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--interface);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--canvas-base);
+  text-transform: uppercase;
+  background: var(--muted-ochre);
+  padding: 4px 8px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .attribution {

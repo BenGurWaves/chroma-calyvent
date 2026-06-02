@@ -79,6 +79,7 @@ function App() {
   const [oklch, setOklch] = useState({ L: 0.55, C: 0.14, H: 45 })
   const [scale, setScale] = useState({})
   const [copySuccess, setCopySuccess] = useState('')
+  const [copiedStep, setCopiedStep] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
@@ -107,11 +108,11 @@ function App() {
     setHexInput(value)
   }
 
-  const handleCopy = async (text) => {
+  const handleCopy = async (text, step) => {
     try {
       await navigator.clipboard.writeText(text)
-      setCopySuccess('COPIED')
-      setTimeout(() => setCopySuccess(''), 1500)
+      setCopiedStep(step)
+      setTimeout(() => setCopiedStep(null), 1500)
     } catch (err) {
       console.error('Failed to copy:', err)
     }
@@ -150,8 +151,7 @@ function App() {
       <header className="top-bar">
         <div className="logo-container">
           <h1 className="logo">CHROMA</h1>
-          <div className="logo-divider"></div>
-          <a href="https://calyvent.com" target="_blank" rel="noopener" className="logo-calyvent">CALYVENT</a>
+          <a href="https://calyvent.com" target="_blank" rel="noopener" className="logo-subtitle">by calyvent</a>
         </div>
       </header>
 
@@ -196,13 +196,16 @@ function App() {
               key={step}
               className="color-column"
               style={{ backgroundColor: color.oklch }}
-              onClick={() => handleCopy(color.oklch)}
+              onClick={() => handleCopy(color.oklch, step)}
             >
               <div className="column-label">{step}</div>
               <div className="column-data">
                 <div className="data-oklch">{color.oklch}</div>
                 <div className="data-lightness">L: {color.L.toFixed(2)}</div>
               </div>
+              {copiedStep === step && (
+                <div className="column-copied">COPIED</div>
+              )}
             </div>
           )
         })}
