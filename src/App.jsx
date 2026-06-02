@@ -76,7 +76,6 @@ function generateScale(baseL, baseC, baseH) {
 function App() {
   const [hexInput, setHexInput] = useState('#A8927E')
   const [colorPicker, setColorPicker] = useState('#A8927E')
-  const [oklch, setOklch] = useState({ L: 0.55, C: 0.14, H: 45 })
   const [scale, setScale] = useState({})
   const [copySuccess, setCopySuccess] = useState('')
   const [copiedStep, setCopiedStep] = useState(null)
@@ -84,7 +83,6 @@ function App() {
 
   useEffect(() => {
     const parsed = hexToOklch(hexInput)
-    setOklch(parsed)
     const generatedScale = generateScale(parsed.L, parsed.C, parsed.H)
     setScale(generatedScale)
   }, [hexInput])

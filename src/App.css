@@ -371,14 +371,15 @@
     font-size: 24px;
   }
 
-  .logo-value {
-    font-size: 12px;
+  .logo-subtitle {
+    font-size: 9px;
   }
 
   .control-deck {
     flex-direction: column;
     align-items: stretch;
     padding: 20px;
+    gap: 16px;
   }
 
   .hex-input,
@@ -386,11 +387,15 @@
     width: 100%;
   }
 
+  .control-group.spacer {
+    display: none;
+  }
+
   .column-data {
     display: none;
   }
 
-  .color-column:hover .column-data {
+  .color-column:active .column-data {
     display: flex;
   }
 }
