@@ -177,10 +177,11 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  padding: 24px 16px;
+  padding: 16px 8px;
   cursor: pointer;
   position: relative;
   transition: opacity 0.2s;
+  min-width: 0;
 }
 
 .color-column:hover {
@@ -193,11 +194,11 @@
 
 .column-label {
   font-family: var(--interface);
-  font-size: 12px;
+  font-size: 10px;
   letter-spacing: 0.18em;
   color: var(--parchment-rose);
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .column-data {
@@ -211,7 +212,7 @@
 
 .data-oklch {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 9px;
   letter-spacing: 0.02em;
   color: var(--parchment-rose);
   text-align: center;
@@ -220,7 +221,7 @@
 
 .data-lightness {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 8px;
   letter-spacing: 0.02em;
   color: var(--parchment-rose);
   opacity: 0.6;
