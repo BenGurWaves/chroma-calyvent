@@ -93,9 +93,16 @@ function App() {
   }, [])
 
   const handleHexChange = (e) => {
-    const value = e.target.value
+    let value = e.target.value.toUpperCase()
+    if (!value.startsWith('#')) {
+      value = '#' + value
+    }
+    value = value.replace(/[^#0-9A-F]/g, '')
+    if (value.length > 7) {
+      value = value.slice(0, 7)
+    }
     setHexInput(value)
-    if (/^#[0-9A-Fa-f]{6}$/.test(value)) {
+    if (/^#[0-9A-F]{6}$/.test(value)) {
       setColorPicker(value)
     }
   }
@@ -212,6 +219,88 @@ function App() {
       <footer className="attribution">
         <a href="https://velocity.calyvent.com" target="_blank" rel="noopener" className="footer-link">DESIGN BY VELOCITY</a>
       </footer>
+
+      <section className="seo-content">
+        <nav className="breadcrumb">
+          <a href="/">Home</a>
+          <span className="breadcrumb-separator">/</span>
+          <span className="breadcrumb-current">OKLCH Color Generator</span>
+        </nav>
+
+        <h2>How to Generate OKLCH Color Scales</h2>
+        <ol>
+          <li>Enter your base HEX color code in the input field</li>
+          <li>Use the color picker to visually select your starting color</li>
+          <li>Chroma instantly generates an 11-step color scale (50-950)</li>
+          <li>Click any color column to copy its OKLCH value</li>
+          <li>Use "COPY ALL COLORS" to export the entire palette</li>
+        </ol>
+
+        <h2>Key Features of Chroma</h2>
+        <ul>
+          <li><strong>Perceptually Uniform:</strong> OKLCH provides consistent color perception across lightness levels</li>
+          <li><strong>11-Step Scale:</strong> Generate complete design system palettes from a single color</li>
+          <li><strong>Instant Results:</strong> Real-time color calculation with no page reloads</li>
+          <li><strong>100% Private:</strong> All processing happens in your browser, no data ever leaves your device</li>
+          <li><strong>Free Forever:</strong> No account, no installation, no limits</li>
+          <li><strong>Mobile Optimized:</strong> Works perfectly on smartphones and tablets</li>
+        </ul>
+
+        <h2>Code Example</h2>
+        <div className="code-example">
+          <div className="code-example__label">Before (Single Color)</div>
+          <pre><code>background-color: #A8927E;</code></pre>
+          <div className="code-example__label">After (Complete Palette)</div>
+          <pre><code>/* 50 */ background-color: oklch(0.970 0.1400 45.00);
+/* 100 */ background-color: oklch(0.920 0.1400 45.00);
+/* 200 */ background-color: oklch(0.840 0.1400 45.00);
+/* 300 */ background-color: oklch(0.740 0.1400 45.00);
+/* 400 */ background-color: oklch(0.650 0.1400 45.00);
+/* 500 */ background-color: oklch(0.550 0.1400 45.00);
+/* 600 */ background-color: oklch(0.460 0.1400 45.00);
+/* 700 */ background-color: oklch(0.380 0.1400 45.00);
+/* 800 */ background-color: oklch(0.300 0.1400 45.00);
+/* 900 */ background-color: oklch(0.210 0.1400 45.00);
+/* 950 */ background-color: oklch(0.140 0.1400 45.00);</code></pre>
+        </div>
+
+        <h2>Why Use OKLCH for Design Systems?</h2>
+        <p>OKLCH is the modern standard for color in design systems because it provides perceptual uniformity—colors that appear equally spaced to the human eye. Unlike HSL or RGB, OKLCH maintains consistent lightness and chroma relationships across the color space, making it ideal for generating harmonious color scales. Major design systems including Tailwind CSS v4 have adopted OKLCH as their default color space.</p>
+
+        <h2>Use Cases</h2>
+        <p>Chroma is perfect for UI designers, frontend developers, and design system architects who need to create consistent color palettes. Use it to generate background colors, text colors, border colors, and accent colors that work together harmoniously. The 11-step scale (50-950) matches the standard naming convention used by modern CSS frameworks, making it easy to integrate into your existing workflow.</p>
+
+        <h2>Security & Privacy</h2>
+        <p>Chroma is built with privacy as a core principle. All color calculations happen entirely in your browser using JavaScript. Your color values are never transmitted to, stored on, or processed by any server. We use no cookies, no tracking, and no third-party analytics. The tool is open source and the code can be audited at any time.</p>
+
+        <h2>Frequently Asked Questions</h2>
+        <div className="faq">
+          <div className="faq-item">
+            <h3>Is this OKLCH color generator free?</h3>
+            <p>Yes, Chroma is 100% free to use online. No account or installation required.</p>
+          </div>
+          <div className="faq-item">
+            <h3>Is my color data private?</h3>
+            <p>Absolutely. All color calculations happen in your browser. Your color values are never uploaded or stored on any server.</p>
+          </div>
+          <div className="faq-item">
+            <h3>What is OKLCH color space?</h3>
+            <p>OKLCH is a perceptually uniform color space that provides better color consistency and perceptual uniformity compared to HSL or RGB. It's the modern standard for color in design systems.</p>
+          </div>
+          <div className="faq-item">
+            <h3>Can I use the generated colors in my projects?</h3>
+            <p>Yes, all generated color palettes are yours to use freely in personal and commercial projects.</p>
+          </div>
+          <div className="faq-item">
+            <h3>Does Chroma work on mobile devices?</h3>
+            <p>Yes, Chroma is fully optimized for mobile browsers and works perfectly on smartphones and tablets.</p>
+          </div>
+          <div className="faq-item">
+            <h3>What browsers support OKLCH?</h3>
+            <p>OKLCH is supported in all modern browsers including Chrome, Firefox, Safari, and Edge. For older browsers, you may need a polyfill.</p>
+          </div>
+        </div>
+      </section>
 
       {copySuccess && (
         <div className="copy-toast">{copySuccess}</div>
