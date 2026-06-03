@@ -152,7 +152,7 @@ function App() {
   }
 
   return (
-    <>
+    <div className="page-wrapper">
       <div className="chroma-app">
         <header className="top-bar">
           <div className="logo-container">
@@ -307,7 +307,7 @@ function App() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   )
 }
 
