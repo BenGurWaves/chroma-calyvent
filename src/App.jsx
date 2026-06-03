@@ -230,21 +230,21 @@ function App() {
         <nav className="breadcrumb">
           <a href="/">Home</a>
           <span className="breadcrumb-separator">/</span>
-          <span className="breadcrumb-current">OKLCH Color Generator</span>
+          <span className="breadcrumb-current">OKLab Color Generator</span>
         </nav>
 
-        <h2>How to Generate OKLCH Color Scales</h2>
+        <h2>How to Generate OKLab Color Scales</h2>
         <ol>
           <li>Enter your base HEX color code in the input field</li>
           <li>Use the color picker to visually select your starting color</li>
           <li>Chroma instantly generates an 11-step color scale (50-950)</li>
-          <li>Click any color column to copy its OKLCH value</li>
+          <li>Click any color column to copy its OKLab value</li>
           <li>Use "COPY ALL COLORS" to export the entire palette</li>
         </ol>
 
         <h2>Key Features of Chroma</h2>
         <ul>
-          <li><strong>Perceptually Uniform:</strong> OKLCH provides consistent color perception across lightness levels</li>
+          <li><strong>Perceptually Uniform:</strong> OKLab provides consistent color perception across lightness levels</li>
           <li><strong>11-Step Scale:</strong> Generate complete design system palettes from a single color</li>
           <li><strong>Instant Results:</strong> Real-time color calculation with no page reloads</li>
           <li><strong>100% Private:</strong> All processing happens in your browser, no data ever leaves your device</li>
@@ -270,8 +270,8 @@ function App() {
 /* 950 */ background-color: oklch(0.140 0.1400 45.00);</code></pre>
         </div>
 
-        <h2>Why Use OKLCH for Design Systems?</h2>
-        <p>OKLCH is the modern standard for color in design systems because it provides perceptual uniformity—colors that appear equally spaced to the human eye. Unlike HSL or RGB, OKLCH maintains consistent lightness and chroma relationships across the color space, making it ideal for generating harmonious color scales. Major design systems including Tailwind CSS v4 have adopted OKLCH as their default color space.</p>
+        <h2>Why Use OKLab for Design Systems?</h2>
+        <p>OKLab is the modern standard for color in design systems because it provides perceptual uniformity—colors that appear equally spaced to the human eye. Unlike HSL or RGB, OKLab maintains consistent lightness and chroma relationships across the color space, making it ideal for generating harmonious color scales. Major design systems including Tailwind CSS v4 have adopted OKLab as their default color space.</p>
 
         <h2>Use Cases</h2>
         <p>Chroma is perfect for UI designers, frontend developers, and design system architects who need to create consistent color palettes. Use it to generate background colors, text colors, border colors, and accent colors that work together harmoniously. The 11-step scale (50-950) matches the standard naming convention used by modern CSS frameworks, making it easy to integrate into your existing workflow.</p>
@@ -282,7 +282,7 @@ function App() {
         <h2>Frequently Asked Questions</h2>
         <div className="faq">
           <div className="faq-item">
-            <h3>Is this OKLCH color generator free?</h3>
+            <h3>Is this OKLab color generator free?</h3>
             <p>Yes, Chroma is 100% free to use online. No account or installation required.</p>
           </div>
           <div className="faq-item">
@@ -290,8 +290,8 @@ function App() {
             <p>Absolutely. All color calculations happen in your browser. Your color values are never uploaded or stored on any server.</p>
           </div>
           <div className="faq-item">
-            <h3>What is OKLCH color space?</h3>
-            <p>OKLCH is a perceptually uniform color space that provides better color consistency and perceptual uniformity compared to HSL or RGB. It's the modern standard for color in design systems.</p>
+            <h3>What is OKLab color space?</h3>
+            <p>OKLab is a perceptually uniform color space that provides better color consistency and perceptual uniformity compared to HSL or RGB. It's the modern standard for color in design systems.</p>
           </div>
           <div className="faq-item">
             <h3>Can I use the generated colors in my projects?</h3>
@@ -302,8 +302,8 @@ function App() {
             <p>Yes, Chroma is fully optimized for mobile browsers and works perfectly on smartphones and tablets.</p>
           </div>
           <div className="faq-item">
-            <h3>What browsers support OKLCH?</h3>
-            <p>OKLCH is supported in all modern browsers including Chrome, Firefox, Safari, and Edge. For older browsers, you may need a polyfill.</p>
+            <h3>What browsers support OKLab?</h3>
+            <p>OKLab is supported in all modern browsers including Chrome, Firefox, Safari, and Edge. For older browsers, you may need a polyfill.</p>
           </div>
         </div>
       </section>
